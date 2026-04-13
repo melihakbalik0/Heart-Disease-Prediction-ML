@@ -1,59 +1,59 @@
-# Heart Disease Prediction & Clinical Analysis 🫀
+# Heart Disease Prediction and Clinical Analysis
 
-### Author: Melih Talha Akbalık
-### Objective
-This project aims to predict the risk of heart disease using the **CDC 2015 BRFSS** dataset. By leveraging Machine Learning, we compare a baseline **Logistic Regression** model against a more robust **Random Forest** classifier to maximize recall and clinical reliability.
+**Author:** Melih Talha Akbalık  
+**Field:** Software Engineering / Machine Learning Research
 
 ---
 
-## 📊 Project Overview
-Heart disease is a leading cause of mortality worldwide. Early detection is critical for survival. This project implements an end-to-end Machine Learning pipeline to identify high-risk individuals based on 21 health indicators.
+## Project Overview
+This study focuses on predictive modeling of heart disease risks using the CDC 2015 BRFSS dataset. The core objective is to develop a robust machine learning pipeline capable of identifying high-risk individuals by evaluating 21 distinct health indicators. 
 
-## 🛠️ Tech Stack
+The project prioritizes clinical utility, specifically focusing on Recall and ROC-AUC metrics to ensure that the model acts as an effective screening tool that minimizes the risk of missing potential cases (False Negatives).
+
+## Technical Environment
 * **Language:** Python 3.x
-* **Libraries:** Pandas, NumPy, Scikit-learn, Seaborn, Matplotlib
-* **Environment:** Google Colab / PyCharm
+* **Core Libraries:** Scikit-learn, Pandas, NumPy, Matplotlib, Seaborn
+* **Development Workflow:** Experimental analysis was conducted in Jupyter Notebooks, while the final modularized production code was developed using PyCharm.
 
 ---
 
-## 🔍 Data Quality & Integrity
-
-Dataset:
-[https://ieee-dataport.org/documents/heart-disease-dataset]
-
-Before modeling, a rigorous data audit was performed. The dataset consists of **253,680 records**. As shown in our analysis, the dataset maintains a **100% Fill Rate** across all features, ensuring high reliability for statistical modeling.
-
-| Metric | Value |
-| :--- | :--- |
-| **Total Records** | 253,680 |
-| **Features** | 21 |
-| **Missing Values** | 0 (Clean) |
+## Dataset Analysis
+The analysis is based on 253,680 individual records provided by the CDC. 
+* **Data Integrity:** A comprehensive data audit confirmed a 100% fill rate across all features. 
+* **Feature Engineering:** The dataset includes 21 features ranging from binary lifestyle indicators (Smoking, Physical Activity) to categorical clinical scales (Age Groups, General Health Status).
 
 ---
 
-## 📈 Model Performance Benchmark
-We prioritized **Recall (Sensitivity)** and **ROC-AUC** to ensure that potential heart disease cases are not missed (minimizing False Negatives).
+## Model Evaluation and Benchmarking
+A comparative analysis was performed between Logistic Regression and Random Forest classifiers. The Random Forest model was selected for the final pipeline due to its superior handling of non-linear relationships and higher sensitivity.
 
-| Performance Metric | Logistic Regression | Random Forest (Winner) |
+| Metric | Logistic Regression | Random Forest (Selected) |
 | :--- | :--- | :--- |
 | **Accuracy** | 0.7490 | **0.7638** |
 | **Recall (Sensitivity)** | 0.7638 | **0.7932** |
-| **ROC-AUC** | 0.8251 | **0.8385** |
-| **F1-Score** | 0.3855 | **0.4022** |
+| **ROC-AUC Score** | 0.8251 | **0.8385** |
 
-> **Note:** Although Precision is lower (~0.25), this is a deliberate trade-off to achieve high Recall, which is vital in clinical screening to avoid missing at-risk patients.
-
----
-
-## 💡 Key Decision Factors (XAI)
-Using **Random Forest Feature Importance**, we identified the top drivers for heart disease prediction:
-1. **GenHlth** (General Health perception)
-2. **Age** 3. **HighBP** (High Blood Pressure)
-4. **BMI** (Body Mass Index)
+**Note on Clinical Trade-offs:**
+The model is specifically tuned for high Recall (~0.79). In a medical context, maximizing the detection of at-risk patients is prioritized over Precision, as the cost of a missed diagnosis significantly outweighs the cost of further clinical validation for a false positive.
 
 ---
 
-## 📂 Repository Structure
-* `notebooks/`: Contains the full exploratory data analysis (EDA) and model experiments.
-* `data/`: Placeholder for the CDC dataset.
-* `src/`: (Coming Soon) Modularized Python scripts for production environments.
+## Key Predictors (Feature Importance)
+Based on Random Forest Gini Importance, the top four features driving the predictions are:
+1. **General Health (GenHlth):** Self-perceived health status.
+2. **Age:** Biological age group.
+3. **High Blood Pressure (HighBP):** Clinical history of hypertension.
+4. **BMI:** Body Mass Index.
+
+---
+
+## Repository Structure
+* `data/`: Local storage for the CDC dataset.
+* `Heart_Disease_Project.ipynb`: Exploratory Data Analysis (EDA) and model prototyping.
+* `Machine_Learning_Project_Pycharm/`: Modularized implementation including the main execution script and source modules for data loading and visualization.
+* `LICENSE`: Project licensing.
+
+---
+
+## Future Work
+* Development of a Streamlit-based web interface for real-time risk estimation and user data input.
