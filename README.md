@@ -17,6 +17,8 @@ Heart disease is a leading cause of mortality worldwide. Early detection is crit
 ---
 
 ## 🔍 Data Quality & Integrity
+
+Dataset[https://ieee-dataport.org/documents/heart-disease-dataset]
 Before modeling, a rigorous data audit was performed. The dataset consists of **253,680 records**. As shown in our analysis, the dataset maintains a **100% Fill Rate** across all features, ensuring high reliability for statistical modeling.
 
 | Metric | Value |
